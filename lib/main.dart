@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         title: '3D TEAM',
         home: AnimatedSplashScreen(
             duration: 3000,
-            splashIconSize: 1024,
+            splashIconSize: 800,
             splash: 'assets/3D-TEAM.png',
             nextScreen: MainScreen(controller: controller),
             splashTransition: SplashTransition.fadeTransition,
