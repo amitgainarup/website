@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:website/screen/about.dart';
 import 'package:website/screen/navigation_controls.dart';
 import 'package:website/screen/webview_stack.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -81,13 +82,20 @@ class MainScreen extends StatelessWidget {
                     children: <Widget>[
                       IconButton(
                         iconSize: 30.0,
-                        padding: const EdgeInsets.only(left: 28.0),
-                        icon: const Icon(Icons.home),
-                        onPressed: () {},
+                        icon: const Icon(Icons.person),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PersonalDetails()),
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        width: 30,
                       ),
                       IconButton(
                         iconSize: 30.0,
-                        padding: const EdgeInsets.only(left: 50.0),
                         icon: const Icon(Icons.notifications),
                         onPressed: () {},
                       ),
