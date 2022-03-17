@@ -116,45 +116,6 @@ class PersonalDetails extends StatelessWidget {
           shape: const CircularNotchedRectangle(),
           child: SizedBox(
             height: 70,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Row(
-                    children: <Widget>[
-                      IconButton(
-                        iconSize: 30.0,
-                        icon: const Icon(Icons.person),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      IconButton(
-                        iconSize: 30.0,
-                        icon: const Icon(Icons.notifications),
-                        onPressed: () {},
-                      ),
-                      const SizedBox(
-                        width: 150,
-                      ),
-                      Row(
-                        children: const [
-                          Icon(Icons.arrow_back_ios),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.arrow_forward_ios),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.replay),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
