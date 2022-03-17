@@ -111,9 +111,9 @@ class PersonalDetails extends StatelessWidget {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
+        bottomNavigationBar: const BottomAppBar(
           elevation: 20.0,
-          shape: const CircularNotchedRectangle(),
+          shape: CircularNotchedRectangle(),
           child: SizedBox(
             height: 70,
           ),
