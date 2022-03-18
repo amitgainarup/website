@@ -5,6 +5,7 @@ import 'package:website/screen/about.dart';
 import 'package:website/screen/navigation_controls.dart';
 import 'package:website/screen/webview_stack.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,18 +52,16 @@ class MainScreen extends StatelessWidget {
           width: 65.0,
           child: FittedBox(
             child: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MainScreen(
-                      controller: controller,
-                    ),
-                  ),
-                );
+              onPressed: () async {
+                const phoneNumber = '+8801783698303';
+                const url = 'tel:$phoneNumber';
+
+                if (await canLaunch(url)) {
+                  await launch(url);
+                }
               },
               child: const Icon(
-                Icons.home,
+                Icons.phone,
                 color: Colors.white,
               ),
               elevation: 5.0,
@@ -81,7 +80,21 @@ class MainScreen extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       IconButton(
-                        iconSize: 30.0,
+                        iconSize: 25.0,
+                        icon: const Icon(Icons.home),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MainScreen(
+                                controller: controller,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      IconButton(
+                        iconSize: 25.0,
                         icon: const Icon(Icons.person),
                         onPressed: () {
                           Navigator.push(
@@ -91,13 +104,19 @@ class MainScreen extends StatelessWidget {
                           );
                         },
                       ),
-                      const SizedBox(
-                        width: 30,
-                      ),
                       IconButton(
-                        iconSize: 30.0,
-                        icon: const Icon(Icons.notifications),
-                        onPressed: () {},
+                        iconSize: 25.0,
+                        icon: const Icon(Icons.message),
+                        onPressed: () async {
+                          const phoneNumber = '+8801783698303';
+                          const url = 'sms:$phoneNumber';
+
+                          if (await canLaunch(url)) {
+                            await launch(
+                              url,
+                            );
+                          }
+                        },
                       ),
                     ],
                   ),
